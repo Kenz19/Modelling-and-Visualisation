@@ -1,0 +1,52 @@
+Initial_value_problem
+---------------------
+
+file: initial_value_problem.py
+
+    CODE FOR FIRST PART OF CHECKPOINT
+
+    How to run:
+        Run initial_value_problem.py in a terminal or python editor. You will first be prompted to input a value for phi_o.
+        Then the programme will prompt for the system size (N). Finally the prompt will ask if the system should be animated
+        (a) or measured (m). Animation shows an animation of the system as the code executes with phi_o and the system size that were input. Choosing measurements (m) measures the free energy of the system over time and outputs a datafile
+        containing free energy values and the time of measurements. - System is automatically run for 10^5 iterations. This 
+        can be altered in the intialisation function of the initial_value_problem class in initial_value_problem.py (param = no_steps).
+
+        Examples of these output files (and plots) have been provided for phi_o = 0 and phi_o = 0.5.
+
+
+Boundary Problem
+-----------------
+
+file: poisson.py
+
+    CODE FOR SECOND PART OF CHECKPOINT
+
+    Solve the poisson equation and other EM equations using numerous algorithms.
+
+    Note there are alot of functions commented out, these were previous attempts at more efficient versions of algorithms.
+    The functions that arent commented out are the working ones.
+
+    How to run:
+        Run poisson.py in terminal or a python editor. 
+
+        You will first be prompted for the size of the cubic system (different shaped systems can be defined but this needs to be done manually in the class (N1, N2, N3 corresponding to rows, cols and depth respectively)). e.g 50
+
+        Next the program prompts for the tolerance at which the algorithm will be terminated once it reaches it. e.g 1e-3.
+
+        Next the program will prompt for the kind of field that should be solved. I.e Magnetic (M), which initialises the system with a current rod running along the z direction in the middle of the x-y plane, with a unique relationship with the potential. Or Electric (E), initialising the system with a point charge in the centre of the cube (or other shape if manually changed). The relation with the field and the potential is altered to fit the electric field.
+
+        Finally the system will prompt for the algorithm to follow. There are three options:
+            1. Jacobi (j)
+                This performs a discretised version of the jacobi algorithm on a 3D potential. A single simulation is carried out and a contour plot and vector feild of the chosen field is output.
+
+            2. Gauss-Seidel (g)
+                This performs a discretised version of the Gauss-Seidel algorithm on a 3D potential - using a checkerboard updater method. A single simulation is carried out and a contour plot and vector feild of the chosen field is output.
+
+            3. Successive Over-Relaxation (s)
+                This performs an optimisation problem looking for the most optimal value of omega to make the convergence of the Gauss-Seidel algorithm faster. This runs multiple simulations with different values of omega between 1 and 2, outputting a plot and corresponding datafile of the number of iterations to convergence vs omega.
+
+        The simulation will then run with the input parameters.
+
+
+PLOTS AND DATAFILES FOR SUBMISSION - Each plot comes with a corresponding datafile, with the same name for ease of identification.
